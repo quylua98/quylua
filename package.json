@@ -1,15 +1,7 @@
 {
-  "name": "gatsby-starter-prologue",
+  "name": "quylua98.com",
   "version": "0.0.1",
-  "description": "Gatsby.js V2 starter template based on Prologue by HTML5 UP",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/anubhavsrivastava/gatsby-starter-prologue.git"
-  },
-  "author": {
-    "name": "Anubhav Srivastava",
-    "email": "anubhav.srivastava00@gmail.com"
-  },
+  "description": "QuyLua98 website",
   "dependencies": {
     "gatsby": "^2.20.2",
     "gatsby-plugin-manifest": "^2.3.1",
@@ -36,15 +28,5 @@
     "gh-pages": "^2.0.1",
     "prettier": "^1.17.0",
     "rimraf": "^3.0.2"
-  },
-  "keywords": [
-    "gatsby",
-    "gatsby-starter",
-    "gatsby-starter-prologue"
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/anubhavsrivastava/gatsby-starter-prologue/issues"
-  },
-  "homepage": "https://github.com/anubhavsrivastava/gatsby-starter-prologue#readme"
+  }
 }

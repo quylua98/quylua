@@ -4,7 +4,7 @@ import Header from './Header';
 import Nav from './Nav';
 import TopNav from './TopNav';
 import config from '../../../config';
-const pic = require('../../assets/images/avatar.png');
+const pic = require('../../assets/images/troc.jpeg');
 
 export default function SideBar({ sections = [] }) {
   const [headerOpen, toggleHeader] = useState(false);
@@ -14,7 +14,7 @@ export default function SideBar({ sections = [] }) {
         title={config.authorName}
         onMenuClick={() => toggleHeader(!headerOpen)}
       />
-      <div id="header">
+      <div id="header" className="d-flex">
         <div className="top">
           <Header
             avatar={pic}
@@ -25,16 +25,6 @@ export default function SideBar({ sections = [] }) {
         </div>
         <Footer socialLinks={config.socialLinks} />
       </div>
-
-      {/* <section id="header">
-        <Header
-          avatar={pic}
-          title={config.authorName}
-          heading={config.heading}
-        />
-        <Nav sections={sections} />
-        <Footer socialLinks={config.socialLinks} />
-      </section> */}
     </div>
   );
 }
