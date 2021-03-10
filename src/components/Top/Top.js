@@ -7,9 +7,8 @@ export default function Top() {
           <div className="container">
               <header>
                   <h2 className="alt">
-                      Xin chào, mình là Quý,
+                      Xin chào, mình là Quý
                   </h2>
-                  <h3>Web developer</h3>
                   <p>Ở đây có một số thứ hay ho về mình, mong bạn sẽ thích ❤️</p>
               </header>
 
