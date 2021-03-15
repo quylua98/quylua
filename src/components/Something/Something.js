@@ -53,14 +53,7 @@ export default function Something() {
           </div>
         </div>
       </div>
-      <div style={{ height: '950px' }}>
-        <Chrono
-          items={data}
-          mode="VERTICAL"
-          slideShow
-          slideItemDuration={4000}
-          scrollable={{ scrollbar: false }}
-        />
+      <div className='col-8 col-12-mobile' style={{ height: '950px' }}>
       </div>
     </section>
   );
