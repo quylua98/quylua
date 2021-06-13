@@ -2,8 +2,6 @@ import React from 'react';
 import pic2 from '../../assets/images/pic02.jpg';
 import pic5 from '../../assets/images/pic05.jpg';
 import pic6 from '../../assets/images/pic06.jpg';
-import { Chrono } from 'react-chrono';
-import data from './data';
 
 export default function Something() {
 
