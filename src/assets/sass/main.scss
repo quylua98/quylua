@@ -1156,8 +1156,31 @@ button,
 	display: flex;
 }
 
-//Chrono
-//#timeline-main-wrapper {
-//  overflow-x: auto;
-//  overscroll-behavior: auto;
-//}
+#up-down {
+  -webkit-animation: action 1s infinite  alternate;
+  animation: upDownAction 1s infinite  alternate;
+}
+@-webkit-keyframes upDownAction {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-15px); }
+}
+@keyframes upDownAction {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-15px); }
+}
+
+.min-w-150 {
+  min-width: 150px;
+}
+
+.max-w-150 {
+  max-width: 150px;
+}
+
+.bg-color {
+  background-color: #222629;
+}
+
+.mt-50 {
+  margin-top: 50px;
+}
