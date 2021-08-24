@@ -716,6 +716,7 @@ button,
 
 #main {
   margin-left: 375px;
+  position: relative;
 
   > #top {
     height: 100vh;
@@ -1180,4 +1181,20 @@ button,
 
 .mt-50 {
   margin-top: 50px;
+}
+
+.lang {
+  position: fixed;
+  right: 0.5em;
+  top: 0.5em;
+  width: 40px;
+
+  a {
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  img {
+    width: 100%;
+  }
 }

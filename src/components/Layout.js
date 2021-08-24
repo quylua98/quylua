@@ -50,15 +50,15 @@ class Layout extends Component {
             <Helmet
               title={data.site.siteMetadata.title}
               meta={[
-                { name: 'description', content: data.site.siteMetadata.siteDescription },
-                { name: 'keywords', content: data.site.siteMetadata.siteKeywords },
+                { name: 'description', content: data.site.siteMetadata.description },
+                { name: 'keywords', content: data.site.siteMetadata.keywords },
                 { property: 'og:title', content: data.site.siteMetadata.ogTitle },
                 { property: 'og:type', content: data.site.siteMetadata.ogType },
                 { property: 'og:image', content: data.site.siteMetadata.ogImage },
                 { property: 'og:url', content: data.site.siteMetadata.ogUrl },
               ]}
             >
-              <html lang="en" />
+              <html lang="vi" />
               <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&amp;display=swap" rel="stylesheet" />
               <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
             </Helmet>

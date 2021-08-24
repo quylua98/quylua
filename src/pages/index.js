@@ -8,12 +8,19 @@ import Portfolio from '../components/Portfolio/Portfolio';
 import Skill from '../components/Skill/Skill';
 import Contact from '../components/Contact/Contact';
 import { Data } from '../data/data.vi';
+import usFlag from '../assets/images/united-states.png';
 
 const IndexPage = () => (
   <Layout>
     <SideBar sections={Data.sidebar} />
 
     <div id='main'>
+      <div className='lang'>
+        <a href='/en'>
+          <img src={usFlag} alt='US' />
+        </a>
+      </div>
+
       <Top title={Data.top.title} content={Data.top.content} />
 
       <Skill skill={Data.skill} experience={Data.experience} />
