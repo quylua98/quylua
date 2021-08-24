@@ -3,6 +3,13 @@ const config = require('./config');
 module.exports = {
   siteMetadata: {
     title: config.siteTitle,
+    siteUrl: config.siteUrl,
+    description: config.siteDescription,
+    keywords: config.siteKeywords,
+    ogTitle: config.ogTitle,
+    ogType: config.ogType,
+    ogImage: config.ogImage,
+    ogUrl: config.ogUrl,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -19,6 +26,12 @@ module.exports = {
       },
     },
     'gatsby-plugin-sass',
-    'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        langKeyDefault: 'vi',
+        useLangKeyLayout: false
+      }
+    }
   ],
 };

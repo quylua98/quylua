@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
@@ -35,6 +34,13 @@ class Layout extends Component {
             site {
               siteMetadata {
                 title
+                siteUrl
+                description
+                keywords
+                ogTitle
+                ogType
+                ogImage
+                ogUrl
               }
             }
           }
@@ -44,11 +50,17 @@ class Layout extends Component {
             <Helmet
               title={data.site.siteMetadata.title}
               meta={[
-                { name: 'description', content: 'Eventually' },
-                { name: 'keywords', content: 'site, web' },
+                { name: 'description', content: data.site.siteMetadata.siteDescription },
+                { name: 'keywords', content: data.site.siteMetadata.siteKeywords },
+                { property: 'og:title', content: data.site.siteMetadata.ogTitle },
+                { property: 'og:type', content: data.site.siteMetadata.ogType },
+                { property: 'og:image', content: data.site.siteMetadata.ogImage },
+                { property: 'og:url', content: data.site.siteMetadata.ogUrl },
               ]}
             >
               <html lang="en" />
+              <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&amp;display=swap" rel="stylesheet" />
+              <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
             </Helmet>
             <div className={isPreloaded ? 'main-body is-preload' : 'main-body'}>
               {children}
@@ -59,9 +71,5 @@ class Layout extends Component {
     );
   }
 }
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export default Layout;

@@ -1,149 +1,139 @@
-// html-grid.scss v1.0 | @ajlkn | MIT licensed */
+@mixin html-grid($gutters: 1.5em, $suffix: '') {
 
-// Mixins.
+  // Initialize.
+  $cols: 12;
+  $multipliers: 0, 0.25, 0.5, 1, 1.50, 2.00;
+  $unit: 100% / $cols;
 
-	/// Initializes the current element as an HTML grid.
-	/// @param {mixed} $gutters Gutters (either a single number to set both column/row gutters, or a list to set them individually).
-	/// @param {mixed} $suffix Column class suffix (optional; either a single suffix or a list).
-	@mixin html-grid($gutters: 1.5em, $suffix: '') {
+  // Suffixes.
+  $suffixes: null;
 
-		// Initialize.
-			$cols: 12;
-			$multipliers: 0, 0.25, 0.5, 1, 1.50, 2.00;
-			$unit: 100% / $cols;
+  @if (type-of($suffix) == 'list') {
+    $suffixes: $suffix;
+  } @else {
+    $suffixes: ($suffix);
+  }
 
-			// Suffixes.
-				$suffixes: null;
+  // Gutters.
+  $guttersCols: null;
+  $guttersRows: null;
 
-				@if (type-of($suffix) == 'list') {
-					$suffixes: $suffix;
-				}
-				@else {
-					$suffixes: ($suffix);
-				}
+  @if (type-of($gutters) == 'list') {
 
-			// Gutters.
-				$guttersCols: null;
-				$guttersRows: null;
+    $guttersCols: nth($gutters, 1);
+    $guttersRows: nth($gutters, 2);
 
-				@if (type-of($gutters) == 'list') {
+  } @else {
 
-					$guttersCols: nth($gutters, 1);
-					$guttersRows: nth($gutters, 2);
+    $guttersCols: $gutters;
+    $guttersRows: 0;
 
-				}
-				@else {
+  }
 
-					$guttersCols: $gutters;
-					$guttersRows: 0;
+  // Row.
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  align-items: stretch;
 
-				}
+  // Columns.
+  > * {
+    box-sizing: border-box;
+  }
 
-		// Row.
-			display: flex;
-			flex-wrap: wrap;
-			box-sizing: border-box;
-			align-items: stretch;
+  // Gutters.
+  &.gtr-uniform {
+    > * {
+      > :last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
 
-			// Columns.
-				> * {
-					box-sizing: border-box;
-				}
+  // Alignment.
+  &.aln-left {
+    justify-content: flex-start;
+  }
 
-			// Gutters.
-				&.gtr-uniform {
-					> * {
-						> :last-child {
-							margin-bottom: 0;
-						}
-					}
-				}
+  &.aln-center {
+    justify-content: center;
+  }
 
-			// Alignment.
-				&.aln-left {
-					justify-content: flex-start;
-				}
+  &.aln-right {
+    justify-content: flex-end;
+  }
 
-				&.aln-center {
-					justify-content: center;
-				}
+  &.aln-top {
+    align-items: flex-start;
+  }
 
-				&.aln-right {
-					justify-content: flex-end;
-				}
+  &.aln-middle {
+    align-items: center;
+  }
 
-				&.aln-top {
-					align-items: flex-start;
-				}
+  &.aln-bottom {
+    align-items: flex-end;
+  }
 
-				&.aln-middle {
-					align-items: center;
-				}
+  // Step through suffixes.
+  @each $suffix in $suffixes {
 
-				&.aln-bottom {
-					align-items: flex-end;
-				}
+    // Suffix.
+    @if ($suffix != '') {
+      $suffix: '-' + $suffix;
+    } @else {
+      $suffix: '';
+    }
 
-		// Step through suffixes.
-			@each $suffix in $suffixes {
+    // Row.
 
-				// Suffix.
-					@if ($suffix != '') {
-						$suffix: '-' + $suffix;
-					}
-					@else {
-						$suffix: '';
-					}
+    // Important.
+    > .imp#{$suffix} {
+      order: -1;
+    }
 
-				// Row.
+    // Columns, offsets.
+    @for $i from 1 through $cols {
+      > .col-#{$i}#{$suffix} {
+        width: $unit * $i;
+      }
 
-					// Important.
-						> .imp#{$suffix} {
-							order: -1;
-						}
+      > .off-#{$i}#{$suffix} {
+        margin-left: $unit * $i;
+      }
+    }
 
-					// Columns, offsets.
-						@for $i from 1 through $cols {
-							> .col-#{$i}#{$suffix} {
-								width: $unit * $i;
-							}
+    // Step through multipliers.
+    @each $multiplier in $multipliers {
 
-							> .off-#{$i}#{$suffix} {
-								margin-left: $unit * $i;
-							}
-						}
+      // Gutters.
+      $class: null;
 
-					// Step through multipliers.
-						@each $multiplier in $multipliers {
+      @if ($multiplier != 1) {
+        $class: '.gtr-' + ($multiplier * 100);
+      }
 
-							// Gutters.
-								$class: null;
+      &#{$class} {
+        margin-top: ($guttersRows * $multiplier * -1);
+        margin-left: ($guttersCols * $multiplier * -1);
 
-								@if ($multiplier != 1) {
-									$class: '.gtr-' + ($multiplier * 100);
-								}
+        > * {
+          padding: ($guttersRows * $multiplier) 0 0 ($guttersCols * $multiplier);
+        }
 
-								&#{$class} {
-									margin-top: ($guttersRows * $multiplier * -1);
-									margin-left: ($guttersCols * $multiplier * -1);
+        // Uniform.
+        &.gtr-uniform {
+          margin-top: $guttersCols * $multiplier * -1;
 
-									> * {
-										padding: ($guttersRows * $multiplier) 0 0 ($guttersCols * $multiplier);
-									}
+          > * {
+            padding-top: $guttersCols * $multiplier;
+          }
+        }
 
-									// Uniform.
-										&.gtr-uniform {
-											margin-top: $guttersCols * $multiplier * -1;
+      }
 
-											> * {
-												padding-top: $guttersCols * $multiplier;
-											}
-										}
+    }
 
-								}
+  }
 
-						}
-
-			}
-
-	}
+}

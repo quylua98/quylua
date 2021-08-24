@@ -4,8 +4,8 @@
   "description": "QuyLua98 website",
   "dependencies": {
     "gatsby": "^2.20.2",
+    "gatsby-plugin-i18n": "^1.0.1",
     "gatsby-plugin-manifest": "^2.3.1",
-    "gatsby-plugin-offline": "^3.1.0",
     "gatsby-plugin-react-helmet": "^3.2.0",
     "gatsby-plugin-sass": "^2.2.0",
     "node-sass": "^4.13.1",
@@ -13,6 +13,7 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1",
     "react-scrollspy": "^3.4.2",
+    "react-vertical-timeline-component": "^3.3.3",
     "smoothscroll-polyfill": "^0.4.4"
   },
   "scripts": {

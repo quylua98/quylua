@@ -1,25 +1,27 @@
 import React from 'react';
-import Scroll from "../Scroll";
+import Scroll from '../Scroll';
 
-export default function Top() {
+export default function Top({ title, content }) {
   return (
-      <section id="top" className="one dark cover">
-          <div className="container">
-              <header>
-                  <h2 className="alt">
-                      Xin chào, mình là Quý
-                  </h2>
-                  <p>Ở đây có một số thứ hay ho về mình, mong bạn sẽ thích ❤️</p>
-              </header>
+    <section id='top' className='one dark cover'>
+      <div className='container'>
+        <header>
+          <h2 className='alt'>
+            { title }
+          </h2>
+          <p>
+            <div dangerouslySetInnerHTML={{__html: content}} />
+          </p>
+        </header>
 
-              <footer>
-                  <Scroll type="id" element={'something'}>
-                      <a href="#something" className="button">
-                          Let's go
-                      </a>
-                  </Scroll>
-              </footer>
-          </div>
-      </section>
+        <footer>
+          <Scroll type='id' element={'skills'}>
+            <a href='#skills' className='button'>
+              Let's go
+            </a>
+          </Scroll>
+        </footer>
+      </div>
+    </section>
   );
 }

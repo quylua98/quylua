@@ -2,10 +2,11 @@ import React from 'react';
 
 import Layout from '../components/Layout';
 import SideBar from '../components/SideBar';
+import { Data } from '../data/data.vi';
 
 const IndexPage = () => (
   <Layout>
-    <SideBar />
+    <SideBar sections={Data.sidebar} />
     <div id="wrapper">
       <div id="main">
         <section>

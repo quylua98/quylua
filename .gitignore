@@ -9,4 +9,6 @@ yarn.lock
 /public
 .DS_Store
 
+.idea
+
 

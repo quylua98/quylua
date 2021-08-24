@@ -1,0 +1,52 @@
+.contact {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  
+  .contact-item {
+    display: flex;
+    min-width: 200px;
+    text-align: center;
+    position: relative;
+
+    .contact-img {
+      max-width: 80px;
+      margin: 0 auto;
+    }
+
+    .hidden-info {
+      position: absolute;
+      opacity: 0;
+      transition: opacity 1s ease-out;
+      height: 0;
+      overflow: hidden;
+    }
+
+    &:hover {
+      .info {
+        display: none;
+      }
+
+      .hidden-info {
+        position: unset;
+        display: inline-block;
+        opacity: 1;
+        height: auto;
+      }
+    }
+
+    .contact-link {
+      width: 100%;
+      border-bottom: none;
+    }
+    
+    img {
+      width: 100%;
+    }
+  }
+
+}
+
+.contact1 {
+  position: relative;
+}

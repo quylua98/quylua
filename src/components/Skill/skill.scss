@@ -1,0 +1,120 @@
+.skill-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    .skill-box {
+        font-family: 'Roboto', serif;
+        padding: 20px;
+        transition: transform 1.5s;
+        width: 33.33%;
+        min-width: 300px;
+
+        &:hover {
+            transform: scale(1.01);
+            box-shadow: 1px 1px 10px 5px #333;
+
+            .logo .img {
+                background-color: white;
+            }
+
+            .logo.logo-toggle {
+                height: 50px;
+                opacity: 1;
+            }
+
+            .logo .img.img-toggle {
+                width: 50px;
+                opacity: 1;
+            }
+
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+
+            &.logo-toggle {
+                opacity: 0;
+                height: 0;
+                margin-top: 10px;
+                transition: all .5s ease-in-out;
+
+                &.toggle {
+                    height: 50px !important;
+                    opacity: 1 !important;
+                }
+            }
+
+            .img {
+                width: 50px;
+                height: 50px;
+
+                background: hsla(0,0%,100%,.1);
+                padding: 5px;
+                margin: 0 10px;
+                border-radius: 50%;
+                transition: .5s;
+
+                img {
+                    width: 100%;
+                }
+
+                &.img-toggle {
+                    opacity: 0;
+                    width: 0;
+
+                    &.toggle {
+                        width: 50px !important;
+                        opacity: 1 !important;
+                    }
+                }
+            }
+        }
+
+        .content {
+            margin-top: 18px;
+
+            .skill-title {
+                font-size: 22px;
+                color: white;
+                text-transform: uppercase;
+            }
+
+            .skill-description {
+                margin-top: 18px;
+                font-size: 18px;
+
+            }
+        }
+    }
+}
+
+.experience {
+    text-align: initial;
+
+    .timeline-icon {
+        background: rgb(220, 227, 226);
+        color: #222629;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .vertical-timeline-element-date {
+        color: #888;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .keyword {
+        font-size: 0.8rem;
+        color: #004b84;
+    }
+}
+
+.m-50-- {
+    margin: 50px 0;
+}
